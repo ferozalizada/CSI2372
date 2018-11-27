@@ -9,9 +9,9 @@ enum Rubies {
 
 class Reward{
     Rubies _rubies;
+        Reward(Rubies);
     
     private:
-        Reward(Rubies);
         Reward(const Reward&) = delete;
         void operator=(const Reward&) = delete;
         

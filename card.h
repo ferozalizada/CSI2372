@@ -9,6 +9,8 @@ enum class FaceBackground {  Red, Green, Purple, Blue, Yellow };
 
 class Card{
     private:
+        Card(FaceAnimal, FaceBackground);
+    protected:
         static const int m_numberOfRows = 3;
         static const int m_numberOfColumns = 3;
         
@@ -21,7 +23,6 @@ class Card{
         Card& operator=( const Card& ) = delete;
         
         // Constructor
-        Card(FaceAnimal, FaceBackground);
 
         std::string operator()(int);
         void createCard(FaceAnimal&, FaceBackground&);
@@ -37,11 +38,7 @@ class Card{
         friend std::ostream& operator<<(std::ostream&, Card&);
         operator FaceAnimal() const;
         operator FaceBackground() const;
-        // friend class CardDeck();
-
-
-    
-
+        friend class CardDeck;
 };
 
 #endif

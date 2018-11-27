@@ -8,12 +8,21 @@ enum class DeckType { Card, Reward };
 
 
 template <class C>
-class Deck<C>
+class Deck{
+    private:
+        int index = 0;
 
-void shuffle(); 
+    protected:
+        std::vector<C*> deck;
+        //can be any other function...
+        //where does it say to include a virtual func?
+        virtual void add() = 0;
 
-C* getNext() ;
+    public:
+        void shuffle(); 
+        C* getNext() ;
+        bool isEmpty() const;
+        static Deck<C>* createDeck(DeckType&);
 
-bool isEmpty() const;
-
+};
 #endif

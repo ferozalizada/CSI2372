@@ -2,7 +2,7 @@
 
 Card::Card(FaceAnimal faceAnimal, FaceBackground faceBackground)
     : m_faceAnimal(faceAnimal), m_faceBackground(faceBackground){
-    // createCard( faceAnimal, faceBackground);
+    createCard( faceAnimal, faceBackground);
 }
 
 char Card::getAnimalLetter(FaceAnimal& animal){
@@ -77,11 +77,11 @@ std::ostream& operator<<(std::ostream& os, Card& c){
 }
 
 
-// why do i need these?
-// Card::operator FaceAnimal() const {
-//     return m_faceAnimal;
-// }
 
-// Card::operator FaceBackground() const {
-//     return m_faceBackground;
-// }
+Card::operator FaceAnimal() const {
+    return m_faceAnimal;
+}
+
+Card::operator FaceBackground() const {
+    return m_faceBackground;
+}
