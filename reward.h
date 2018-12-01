@@ -9,7 +9,7 @@ enum Rubies {
 
 class Reward{
     Rubies _rubies;
-        Reward(Rubies);
+    Reward(Rubies);
     
     private:
         Reward(const Reward&) = delete;

@@ -12,6 +12,7 @@ class Deck{
     private:
         int index = 0;
 
+        virtual Deck<C>& createDeck() = 0;
     protected:
         std::vector<C*> deck;
         //can be any other function...
@@ -22,7 +23,6 @@ class Deck{
         void shuffle(); 
         C* getNext() ;
         bool isEmpty() const;
-        static Deck<C>* createDeck(DeckType&);
 
 };
 #endif

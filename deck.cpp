@@ -25,13 +25,13 @@ C* Deck<C>::getNext(){
 // }
 //can't i just make it virtual???? call it in the stupid shit
 
-template <class C>
-Deck<C>* Deck<C>::createDeck(DeckType& type){
-    if(type == DeckType::Card){
-        // return new CardDeck();
-        return;
-    } else if(type == DeckType::Reward){
-        // return new RewardDeck();
-        return;
-    }
-}
+// template <class C>
+// Deck<C>* Deck<C>::createDeck(DeckType& type){
+//     if(type == DeckType::Card){
+//         // return new CardDeck();
+//         return;
+//     } else if(type == DeckType::Reward){
+//         // return new RewardDeck();
+//         return;
+//     }
+// }

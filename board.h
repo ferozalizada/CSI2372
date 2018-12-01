@@ -4,6 +4,7 @@
 #include <string>
 // #include <vector>
 #include "card.h"
+#include "carddeck.h"
 
 enum class Letter{ A, B, C, D, E};
 enum class Number{ ONE, TWO, THREE, FOUR, FIVE };
@@ -16,14 +17,23 @@ class Board{
 
     static const int row_board = 5;
     static const int col_board = 5;
-    bool board[row_board][col_board];
+    bool boardFlag[row_board][col_board];
+
+    // static const int row_board = 5;
+    // static const int col_board = 5;
+    // CardDeck cardDeck[row_board][col_board];
+
 
     // need to have a board to hold everything in///
 
     //flag for face to know what
     bool faceUp = false;
 
-    protected:
+        public:
+        Board() = default;
+    // protected:
+        void createFlag();
+        void print();
         bool isFaceUp(const Letter&, const Number&) const;
         
         bool turnFaceUp(const Letter&, const Number&);

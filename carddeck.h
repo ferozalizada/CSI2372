@@ -8,6 +8,8 @@ class CardDeck: public Deck<Card>{
     protected:
         void add();
         CardDeck() = default;
+        
+        
     private:
         FaceAnimal nextAnimal(int);
         // returns the color based on index
@@ -16,6 +18,8 @@ class CardDeck: public Deck<Card>{
         //no assignment and copy
         CardDeck(const CardDeck&) = delete;
         CardDeck& operator=(const CardDeck&) = delete;
+        
+        CardDeck& createDeck();
 
     public:
         static CardDeck& make_CardDeck();

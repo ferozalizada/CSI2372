@@ -2,8 +2,9 @@
 #define RULES_H
 
 #include "game.h"
+
 class Rules{
-    protected:
+    public:
         bool isValid(const Game&);
         bool gameOver(const Game&);
         bool roundOver(const Game&);

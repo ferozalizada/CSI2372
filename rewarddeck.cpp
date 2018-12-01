@@ -1,8 +1,14 @@
 #include "rewarddeck.h"
 
-RewardDeck& RewardDeck::make_RewardDeck(){
+
+RewardDeck& RewardDeck::createDeck(){
     static RewardDeck rewardDeck;
     rewardDeck.add();
+    return rewardDeck;
+}
+RewardDeck& RewardDeck::make_RewardDeck(){
+    RewardDeck rewardDeck;
+    rewardDeck.createDeck();
     return rewardDeck;
 }
 

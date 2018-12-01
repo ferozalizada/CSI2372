@@ -1,10 +1,18 @@
 #include "carddeck.h"
 
+//override
+
 CardDeck& CardDeck::make_CardDeck(){
+    CardDeck cardDeck;
+    return cardDeck.createDeck();
+}
+
+CardDeck& CardDeck::createDeck(){
     static CardDeck cardDeck;
     cardDeck.add();
     return cardDeck;
 }
+
 //not neededdededed
 //why wa sit virtual again?
 void CardDeck::add(){
