@@ -1,13 +1,13 @@
-// #include <iostream>
-// #include <string>
-// #include <climits>
+#include <iostream>
+#include <string>
+#include <climits>
 
-// #include "player.h"
-// #include "carddeck.h"
-// using std::cin;
-// using std::cout;
-// using std::endl;
-// using std::string;
+#include "player.h"
+#include "carddeck.h"
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
 
 // int main(){
 // /*    string gameMode = "";
@@ -79,5 +79,29 @@
 //     } */
 
 
-//     return 0;
+//     // std::cout<< "starting" << std::endl;
+//     // std::cout<< "cardDeck running ..." << std:: endl;
+//     // CardDeck& mydeck1 = CardDeck::make_CardDeck();
+//     // mydeck1.shuffle();
+//     // // while(mydeck1.isEmpty()){
+//     // //     // std::cout<< *mydeck1.getNext() << std::endl;
+//     // //     std::cout<< "*mydeck1.getNext()" << std::endl;
+
+//     // // }
+
+//     // return 0;
 // }
+
+
+
+int main(){
+    std::cout<< "cardDeck running ..." << std::endl;
+    Deck<Card>& mydeck1 = CardDeck::make_CardDeck();
+    // mydeck1.shuffle();
+    // mydeck1.deck.pop_back();
+    // while(mydeck1.isEmpty()){
+        // std::cout<< mydeck1 << std::endl;
+        // std::cout<< "*mydeck1.getNext()" << std::endl;
+    // }
+    std::cout<< "starting" << std::endl;
+}

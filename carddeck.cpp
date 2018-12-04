@@ -20,11 +20,14 @@ void CardDeck::add(){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 FaceAnimal a = nextAnimal(i);
-                FaceBackground c = nextColor(i);
+                FaceBackground c = nextColor(j);
                 //no delete???
                 Card* newCard = new Card(a, c);
                 deck.push_back(newCard);
+                // for debug?
+                // std::cout << *(newCard) << std::endl;
             }
+        // std::cout << std::endl;
         }
     }
 }

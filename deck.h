@@ -1,8 +1,12 @@
-#ifndef _DECK_H_
-#define _DECK_H_
+#ifndef DECK_H_
+#define DECK_H_
 
+#include "card.h"
+#include "reward.h"
 #include <vector>
 #include <algorithm>
+#include <random>
+
 
 enum class DeckType { Card, Reward };
 
@@ -23,6 +27,5 @@ class Deck{
         void shuffle(); 
         C* getNext() ;
         bool isEmpty() const;
-
 };
 #endif

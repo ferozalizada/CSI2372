@@ -3,6 +3,7 @@
 
 #include "deck.h"
 #include "card.h"
+#include "carddeck.h"
 
 class CardDeck: public Deck<Card>{
     protected:
@@ -22,6 +23,7 @@ class CardDeck: public Deck<Card>{
         CardDeck& createDeck();
 
     public:
+        void printDeck();
         static CardDeck& make_CardDeck();
 };
 #endif

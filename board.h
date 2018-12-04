@@ -5,46 +5,39 @@
 // #include <vector>
 #include "card.h"
 #include "carddeck.h"
+#include "deck.h"
 
 enum class Letter{ A, B, C, D, E};
 enum class Number{ ONE, TWO, THREE, FOUR, FIVE };
 
 class Board{
-    //needs a screen size// 16X20
-    static const int row = 16;
-    static const int col = 20;
+    static const int row = 19;
+    static const int col = 19;
     std::string screen[row][col];
 
     static const int row_board = 5;
     static const int col_board = 5;
     bool boardFlag[row_board][col_board];
 
-    // static const int row_board = 5;
-    // static const int col_board = 5;
-    // CardDeck cardDeck[row_board][col_board];
+    Card* deckBoard[row_board][col_board];
+    //create deck
+    Deck<Card>& mydeck1 = CardDeck::make_CardDeck();
+    public:
+    void updateScreen();
 
-
-    // need to have a board to hold everything in///
-
-    //flag for face to know what
-    bool faceUp = false;
-
-        public:
         Board() = default;
     // protected:
         void createFlag();
         void print();
+        void setBoard();
         bool isFaceUp(const Letter&, const Number&) const;
-        
         bool turnFaceUp(const Letter&, const Number&);
-
         bool turnFaceDown(const Letter&, const Number&);
-
         Card* getCard(const Letter&, const Number&);
-
         void setCard(const Letter&, const Number&, Card*);
-        
         void reset(); 
+
+        friend std::ostream& operator<<(std::ostream&, Board);
 
 
 };

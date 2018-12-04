@@ -14,11 +14,14 @@ class Game{
         int index = 0;
     //create array of players
         Player players[num];
-        Card currentCard;
-        Card previousCard;
+        Card* currentCard;
+        Card* previousCard;
+        Card handCard;
 
-        static int round;
-        static Board board;
+        // needs to be static
+         int round;
+        // needs to be static
+         Board board;
         
         int getRound();
         
@@ -35,7 +38,7 @@ class Game{
     
     public:
         Game() = default;
-        Game(Board&);
+        // Game(Board&);
         friend std::ostream& operator<<(std::ostream&, Game&);
 };
 #endif
