@@ -1,5 +1,5 @@
 #include "rewarddeck.h"
-
+//needs destructor
 
 RewardDeck& RewardDeck::createDeck(){
     static RewardDeck rewardDeck;

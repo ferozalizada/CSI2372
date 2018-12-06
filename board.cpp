@@ -21,48 +21,42 @@ void Board::setCard(const Letter& _letter, const Number& _number, Card* card){
 }
 
 void Board::reset(){
-    std::cout<< "restting()" << std::endl;
+    std::cout<< "restting() \n" << std::endl;
     memset(boardFlag, 0, row_board*col_board);
     //throws seg fault
 }
 
 void Board::setBoard(){
-    std::cout<<"Setting Board" <<std::endl;
+    std::cout<<"Setting Board\n" <<std::endl;
+    // std::string mystr = 
      for(int i = 0; i < row_board; i++){
-        for(int j = 0; j< col_board; j++){
+        for(int j = 0; j < col_board; j++){
             deckBoard[i][j] = mydeck1.getNext();
-            std::cout<< (*deckBoard[i][j]);
+            // std::cout<< *(deckBoard[i][j]);
+            //   getline (std::cout, mystr);
+
+            // std::ostream;
+
         }
-        // std::cout << std::endl;
     }
 }
 void Board::updateScreen(){
+    std::cout<< "Updating Screen!\n" << std::endl;;
     memset(screen,'z',16*16);
-    std::cout<< "screen updating";
-    for (int i =0; i< row; i++){
-        for(int j =0; j < col; j++){
-            std::cout << screen[i][j];
-        }
-        std::cout<< std::endl;
-    }
+    
+     (*deckBoard[0][0]).print();
+    // std::cout<< "enum value: "<< (int)((FaceAnimal) (*deckBoard[0][0])) << std::endl;;
+    // std::cout<< "enum value: "<< (int)((FaceBackground) (*deckBoard[0][0])) << std::endl;;
+
+    // for (int i =0; i < row; i++){
+    //     for(int j =0; j < col; j++){
+    //         std::cout << screen[i][j];
+    //     }
+    //     std::cout <<"\n"<< std::endl;
+    // }
 }
 
-void Board::print(){
-    for(int i = 0; i < row_board; i++){
-        for(int j = 0; j< col_board; j++){
-                std::cout<< boardFlag[i][j];
-            // if(boardFlag[i][j] == 0){
-            // }else{
-            //     screen[i][j] = "X";
-            //     // screen[i][j] = *deckBoard[i][j];
-            // }
-            // std::cout<< "\t"; 
-        }
-        std::cout<< std::endl;
-    }
-}
-
-#if 0
+#if 1
 int main(){
     Board b = Board();
     b.setBoard();
@@ -70,16 +64,9 @@ int main(){
     std::cout<< "before"<< std::endl;
     b.turnFaceUp(Letter::A, Number::ONE);
     b.turnFaceUp(Letter::A, Number::TWO);
-    std::cout<< b.print() << std::endl;
-    b.print();
+    // b.print();
     b.reset();
-    b.print();
-
-    b.turnFaceDown(Letter::A, Number::THREE);
-    std::cout<< "after"<< std::endl;
-    b.print();
-    std::cout<< "position 1 is face: "<< static_cast<bool>(b.isFaceUp(Letter::A, Number::ONE) )<< std::endl;
-    std::cout<< "position 2 is face: "<< (static_cast<bool>(b.isFaceUp(Letter::A, Number::TWO) ))<< std::endl;
+    // b.print();
 }
 
 #endif

@@ -14,9 +14,9 @@ class Game{
         int index = 0;
     //create array of players
         Player players[num];
-        Card* currentCard;
+        const Card* currentCard;
         Card* previousCard;
-        Card handCard;
+        // Card handCard;
 
         // needs to be static
          int round;

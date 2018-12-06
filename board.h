@@ -17,19 +17,20 @@ class Board{
 
     static const int row_board = 5;
     static const int col_board = 5;
-    bool boardFlag[row_board][col_board];
+    Deck<Card>& mydeck1 = CardDeck::make_CardDeck();
 
+    bool boardFlag[row_board][col_board];
     Card* deckBoard[row_board][col_board];
     //create deck
-    Deck<Card>& mydeck1 = CardDeck::make_CardDeck();
+    
     public:
     void updateScreen();
+    void setBoard();
+    void print();
 
         Board() = default;
+
     // protected:
-        void createFlag();
-        void print();
-        void setBoard();
         bool isFaceUp(const Letter&, const Number&) const;
         bool turnFaceUp(const Letter&, const Number&);
         bool turnFaceDown(const Letter&, const Number&);

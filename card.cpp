@@ -68,12 +68,12 @@ FaceBackground Card::getColour(){
     return m_faceBackground;
 }
     
-std::ostream& operator<<(std::ostream& os, Card& c){
+void Card::print(){
+     Card c(FaceAnimal::Penguin, FaceBackground::Red);
     for(int row = 0; row < c.getNRows(); ++row){
         std::string rowString = c(row);
         std::cout << rowString << std::endl;
     }
-    return os;
 }
 
 

@@ -32,10 +32,8 @@ class Card{
 
         FaceAnimal getAnimal();
         FaceBackground getColour();
-        
     public:
-
-        friend std::ostream& operator<<(std::ostream&, Card&);
+        void print();
         operator FaceAnimal() const;
         operator FaceBackground() const;
         friend class CardDeck;
