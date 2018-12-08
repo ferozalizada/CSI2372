@@ -21,7 +21,6 @@ void Board::setCard(const Letter& _letter, const Number& _number, Card* card){
 }
 
 void Board::reset(){
-    // std::cout<< "\nrestting() \n" << std::endl;
     memset(boardFlag, 0, row_board*col_board);
 }
 
@@ -32,7 +31,7 @@ void Board::setBoard(){
      for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
             deckBoard[i][j] = mydeck1.getNext();
-            // (*deckBoard[i][j]).print();
+            (*deckBoard[i][j]).print();
         }
     }
     text = buffer.str();
@@ -44,8 +43,8 @@ void Board::setScreen(){
     int counter = 0;
     for (int i = 0; i < row; i++){
         counter ++;
-        if (counter != 4 ){
             screen[i] = "zzz zzz zzz zzz zzz";
+        if (counter != 4 ){
         }else{
             counter = 0;
             screen[i] = "                   ";
@@ -54,37 +53,39 @@ void Board::setScreen(){
 }
 
 void Board::updateScreen(){
-    int counter = 0;
-    for (int i = 0; i < row_board; i++){
-        for (int j = 0; j < col_board; j++){
+    for(int i = 0; i < row_board; i++){
+        for(int j = 0; j < col_board; j++){
+            // std:: cout << boardFlag[i][j];
             if(boardFlag[i][j] == true){
-                // std::cout<< i << j <<std::endl;
-                screen[i].replace(0,3, "AAA");
-                screen[i+1].replace(0,3, "AXA");
-                screen[i+2].replace(0,3, "AAA");
+                screen[(i*4)+0].replace(j*4, 3, "AAA");
+                screen[(i*4)+1].replace(j*4, 3, "AAA");
+                screen[(i*4)+2].replace(j*4, 3, "AAA");
             }
         }
+        // std::cout<< std::endl;
     }
 }
 
 void Board::print(){
-    int counter = 0;
-    char coordinates = ' ';
-    for(int i = 0; i< row; i++){
-        counter ++;
-        std::cout<< coordinates << screen[i] << std::endl;  
+    // (*deckBoard[0][0]).print();
+    // (*deckBoard[0][1]).print();
+    for(int i = 0; i < row; i++){
+        std::cout<< screen[i] << std::endl;
     }
+    std::cout<< text << std::endl;
 }
-
 #if 1
 int main(){
     Board b = Board();
-    b.setBoard();
-    // std::cout<< "back to console!";
+    b.setBoard();;
     b.setScreen();
     b.turnFaceUp(Letter::A, Number::ONE);
-    b.turnFaceUp(Letter::A, Number::TWO);
-    b.turnFaceUp(Letter::A, Number::THREE);
+    b.turnFaceUp(Letter::B, Number::ONE);
+    b.turnFaceUp(Letter::C, Number::ONE);
+    b.turnFaceUp(Letter::D, Number::ONE);
+    b.turnFaceUp(Letter::E, Number::ONE);
+    b.turnFaceUp(Letter::E, Number::FIVE);
+    b.turnFaceUp(Letter::D, Number::THREE);
     b.updateScreen();
     b.print();
     b.reset();

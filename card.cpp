@@ -83,3 +83,6 @@ Card::operator FaceAnimal() const {
 Card::operator FaceBackground() const {
     return m_faceBackground;
 }
+
+#if 0
+#endif
