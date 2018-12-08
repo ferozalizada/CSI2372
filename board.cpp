@@ -1,34 +1,91 @@
 #include "board.h"
+#define TEST_BOARD_
+
+// constructor
+
+
+const char* OutOfRange::what() const throw(){
+    return "OutOfRange";
+}
 
 bool Board::isFaceUp(const Letter& _letter, const Number& _number) const{
+    try{
+        if((_letter > Letter::E) && (_number > Number::FIVE)){
+            throw "OutOfRange";
+        }else{
+            return (boardFlag[(int)_letter][(int)_number]);
+        }
+    } catch(...){
+        std::cout<< "OutOfRange" << std::endl;
+    }
     return (boardFlag[(int)_letter][(int)_number]);
 }
 
 bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
+    try{
+        if((_letter > Letter::E) && (_number > Number::FIVE)){
+            throw "OutOfRange";
+        }else{
+            return boardFlag[(int)_letter][(int)_number] = true;
+        }
+    } catch(...){
+        std::cout<< "OutOfRange" << std::endl;
+    }
     return boardFlag[(int)_letter][(int)_number] = true;
 }
 
 bool Board::turnFaceDown(const Letter& _letter, const Number& _number){
+    try{
+        if((_letter > Letter::E) && (_number > Number::FIVE)){
+            throw "OutOfRange";
+        }else{
+            return boardFlag[(int)_letter][(int)_number] = false;
+        }
+    } catch(...){
+        std::cout<< "OutOfRange" << std::endl;
+    }
     return boardFlag[(int)_letter][(int)_number] = false;
 }
 
 Card* Board::getCard(const Letter& _letter, const Number& _number){
+     try{
+        if((_letter > Letter::E) && (_number > Number::FIVE)){
+            throw "OutOfRange";
+        }else{
+            return deckBoard[(int)_letter][(int)_number];
+        }
+    } catch(...){
+        std::cout<< "OutOfRange" << std::endl;
+    }
     return deckBoard[(int)_letter][(int)_number];
 }
 
 void Board::setCard(const Letter& _letter, const Number& _number, Card* card){
-    deckBoard[(int)_letter][(int)_number] = card;
+    try{
+        if((_letter > Letter::E) && (_number > Number::FIVE)){
+            throw "OutOfRange";
+        }else{
+            deckBoard[(int)_letter][(int)_number] = card;
+        }
+    } catch(...){
+        std::cout<< "OutOfRange" << std::endl;
+    }
 }
 
 void Board::reset(){
-    memset(boardFlag, 0, row_board*col_board);
+    std::memset(boardFlag, 1, row_board*col_board);
 }
 
-void Board::setBoard(){
-    std::cout<<"Setting Board and making the string rep of the Cards\n" <<std::endl;
+Board::Board(){
+    mydeck1.shuffle();
+    // mydeck1.getNext();
     for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
-            deckBoard[i][j] = mydeck1.getNext();
+            // if(i == j && i == 2) {
+            //     std::cout<< mydeck1.getNext();
+                deckBoard[i][j] = mydeck1.getNext();
+            // } else{
+            // }
         }
     }
 }
@@ -80,21 +137,24 @@ std::ostream& operator<<(std::ostream& os, Board board){
     std::cout << "\n    1   2   3   4   5" << std::endl;
     return os;
 }
-#if 1
+#ifdef TEST_BOARD_
 int main(){
     Board b = Board();
-    b.setBoard();;
+    b.reset();
+    // b.setBoard();
     b.setScreen();
-    b.turnFaceUp(Letter::A, Number::ONE);
-    b.turnFaceUp(Letter::B, Number::ONE);
-    b.turnFaceUp(Letter::C, Number::ONE);
-    b.turnFaceUp(Letter::D, Number::ONE);
-    b.turnFaceUp(Letter::E, Number::ONE);
-    b.turnFaceUp(Letter::E, Number::FIVE);
-    b.turnFaceUp(Letter::D, Number::THREE);
+    // b.turnFaceUp(Letter::A, Number::ONE);
+    // b.turnFaceUp(Letter::B, Number::ONE);
+    // b.turnFaceUp(Letter::C, Number::ONE);
+    // b.turnFaceUp(Letter::D, Number::ONE);
+    // b.turnFaceUp(Letter::E, Number::ONE);
+    // b.turnFaceUp(Letter::E, Number::FIVE);
+    // b.turnFaceUp(Letter::D, Number::THREE);
+    // b.turnFaceUp(Letter::C, Number::THREE);
     b.updateScreen();
     std::cout<< b;
     b.reset();
+    b.isFaceUp(Letter::F, Number::Six);
 }
 
 #endif
