@@ -19,7 +19,7 @@ class Board{
     
     std::string screen[row];
     
-    std::string text;
+    // std::string text;
     std::string sample;
 
     static const int row_board = 5;

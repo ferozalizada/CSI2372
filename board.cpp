@@ -26,17 +26,17 @@ void Board::reset(){
 
 void Board::setBoard(){
     std::cout<<"Setting Board and making the string rep of the Cards\n" <<std::endl;
-    std::stringstream buffer;
-    std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());    
+    // std::stringstream buffer;
+    // std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());    
      for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
             deckBoard[i][j] = mydeck1.getNext();
-            (*deckBoard[i][j]).print();
+            // (*deckBoard[i][j]).print();
         }
     }
-    text = buffer.str();
-    std::replace(text.begin(), text.end(), '\n', ' ');
-    std::cout.rdbuf(old);
+    // text = buffer.str();
+    // std::replace(text.begin(), text.end(), '\n', ' ');
+    // std::cout.rdbuf(old);
 }
 
 void Board::setScreen(){
@@ -53,17 +53,29 @@ void Board::setScreen(){
 }
 
 void Board::updateScreen(){
+    
     for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
             // std:: cout << boardFlag[i][j];
+            // "rrr rCr rrr "
             if(boardFlag[i][j] == true){
-                screen[(i*4)+0].replace(j*4, 3, "AAA");
-                screen[(i*4)+1].replace(j*4, 3, "AAA");
-                screen[(i*4)+2].replace(j*4, 3, "AAA");
+                std::stringstream buffer;
+                std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());    
+                (*deckBoard[i][j]).print();
+                std::string text = buffer.str();
+
+                std::replace(text.begin(), text.end(), '\n', ' ');
+                sample = text;
+                screen[(i*4)+0].replace(j*4, 3, text.substr(0, 3));
+                screen[(i*4)+1].replace(j*4, 3, text.substr(4, 3));
+                screen[(i*4)+2].replace(j*4, 3, text.substr(8, 3));
+                buffer.str("");
+                std::cout.rdbuf(old);
             }
         }
         // std::cout<< std::endl;
     }
+    // std::cout<<"Here is my shit" <<text << std:: endl;
 }
 
 void Board::print(){
@@ -72,7 +84,7 @@ void Board::print(){
     for(int i = 0; i < row; i++){
         std::cout<< screen[i] << std::endl;
     }
-    std::cout<< text << std::endl;
+    // std::cout<< "\'"<< sample<< "\'" << std::endl;
 }
 #if 1
 int main(){
