@@ -2,6 +2,9 @@
 #define BOARD_H
 
 #include <string>
+#include <algorithm>
+#include<iostream>
+#include<sstream>
 // #include <vector>
 #include "card.h"
 #include "carddeck.h"
@@ -13,7 +16,10 @@ enum class Number{ ONE, TWO, THREE, FOUR, FIVE };
 class Board{
     static const int row = 19;
     static const int col = 19;
-    std::string screen[row][col];
+    
+    std::string screen[row];
+    
+    std::string text;
 
     static const int row_board = 5;
     static const int col_board = 5;
@@ -24,6 +30,8 @@ class Board{
     //create deck
     
     public:
+
+    void setScreen();
     void updateScreen();
     void setBoard();
     void print();

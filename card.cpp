@@ -61,22 +61,20 @@ void Card::createCard(FaceAnimal& animal, FaceBackground& color){
         }
     }
 }
-FaceAnimal Card::getAnimal(){
-    return m_faceAnimal;
-}
-FaceBackground Card::getColour(){
-    return m_faceBackground;
-}
+// FaceAnimal Card::getAnimal(){
+//     return m_faceAnimal;
+// }
+// FaceBackground Card::getColour(){
+//     return m_faceBackground;
+// }
     
 void Card::print(){
-     Card c(FaceAnimal::Penguin, FaceBackground::Red);
-    for(int row = 0; row < c.getNRows(); ++row){
-        std::string rowString = c(row);
+    // Card c(FaceAnimal::Penguin, FaceBackground::Red);
+    for(int row = 0; row < this->getNRows() ; ++row){
+        std::string rowString = (*this)(row);
         std::cout << rowString << std::endl;
     }
 }
-
-
 
 Card::operator FaceAnimal() const {
     return m_faceAnimal;
