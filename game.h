@@ -8,35 +8,34 @@
 class Game{
     // private:
 
-    public:
+    // public:
     //const
         static const int num = 4;
         int index = 0;
-    //create array of players
-        Player players[num];
+    //create array of players const
+        const Player* players[num];
         const Card* currentCard;
-        Card* previousCard;
-        // Card handCard;
+        const Card* previousCard;
 
         // needs to be static
-         int round;
+        int round = 0;
         // needs to be static
-         Board board;
+        Board board;
+    
+    public:
         
-        int getRound();
+        int getRound() const;
         
         void nextRound();
         void addPlayer(const Player&);
-        Player& getPlayer(Side);
+        const Player& getPlayer(Side) const;
 
-        const Card* getPreviousCard();
-        const Card* getCurrentCard();
+        const Card* getPreviousCard() const;
+        const Card* getCurrentCard() const;
         void setCurrentCard( const Card*);
 
         Card* getCard( const Letter&, const Number& );
         void setCard( const Letter&, const Number&, Card* );
-    
-    public:
         Game() = default;
         // Game(Board&);
         friend std::ostream& operator<<(std::ostream&, Game&);

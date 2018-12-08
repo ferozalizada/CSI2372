@@ -7,7 +7,7 @@ RewardDeck& RewardDeck::createDeck(){
     return rewardDeck;
 }
 RewardDeck& RewardDeck::make_RewardDeck(){
-    RewardDeck rewardDeck;
+    static RewardDeck rewardDeck;
     rewardDeck.createDeck();
     return rewardDeck;
 }

@@ -4,11 +4,13 @@
 #include "game.h"
 
 class Rules{
+    // Game game;
+    int index = 0;
     public:
-        bool isValid(const Game&);
-        bool gameOver(const Game&);
-        bool roundOver(const Game&);
-        const Player& getNextPlayer(const Game& );
+        bool isValid(const Game&) const;
+        bool gameOver(const Game&) const;
+        bool roundOver(const Game&) const;
+        const Player& getNextPlayer(const Game& ) ;
 
 };
 #endif

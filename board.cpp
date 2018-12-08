@@ -11,12 +11,12 @@ const char* OutOfRange::what() const throw(){
 bool Board::isFaceUp(const Letter& _letter, const Number& _number) const{
     try{
         if((_letter > Letter::E) && (_number > Number::FIVE)){
-            throw "OutOfRange";
+            throw OutOfRange();
         }else{
             return (boardFlag[(int)_letter][(int)_number]);
         }
-    } catch(...){
-        std::cout<< "OutOfRange" << std::endl;
+    } catch(OutOfRange e){
+        std::cout<< e.what()<< std::endl;
     }
     return (boardFlag[(int)_letter][(int)_number]);
 }
@@ -78,15 +78,23 @@ void Board::reset(){
 
 Board::Board(){
     mydeck1.shuffle();
-    // mydeck1.getNext();
-    for(int i = 0; i < row_board; i++){
-        for(int j = 0; j < col_board; j++){
-            // if(i == j && i == 2) {
-            //     std::cout<< mydeck1.getNext();
-                deckBoard[i][j] = mydeck1.getNext();
-            // } else{
-            // }
+    try{
+        // mydeck1.getNext();
+        for(int i = 0; i < row_board; i++){
+            for(int j = 0; j < col_board; j++){
+                // if(i == j && i == 2) {
+                //     std::cout<< mydeck1.getNext();
+                if(mydeck1.isEmpty()){
+                    throw "NoMoreCards";
+                } else{
+                    deckBoard[i][j] = mydeck1.getNext();
+                }
+            }
         }
+        
+
+    } catch(...){
+        std::cout<< "NoMoreCards"<< std::endl;
     }
 }
 
@@ -137,7 +145,7 @@ std::ostream& operator<<(std::ostream& os, Board board){
     std::cout << "\n    1   2   3   4   5" << std::endl;
     return os;
 }
-#ifdef TEST_BOARD_
+#ifndef TEST_BOARD_
 int main(){
     Board b = Board();
     b.reset();
@@ -154,7 +162,7 @@ int main(){
     b.updateScreen();
     std::cout<< b;
     b.reset();
-    b.isFaceUp(Letter::F, Number::Six);
+    // b.isFaceUp(Letter::F, Number::Six);
 }
 
 #endif

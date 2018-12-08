@@ -11,31 +11,27 @@
 #include "carddeck.h"
 #include "deck.h"
 
-enum class Letter{ A, B, C, D, E, F};
-enum class Number{ ONE, TWO, THREE, FOUR, FIVE , Six};
+enum class Letter{ A, B, C, D, E};
+enum class Number{ ONE, TWO, THREE, FOUR, FIVE};
 
 class OutOfRange: public std::exception{
   virtual const char* what() const throw();
+  friend class Board;
 };
 
 class Board{
     private:
         static const int row = 19;
         static const int col = 19;
-        
         std::string screen[row];
         
-        // std::string text;
-        std::string sample;
-
         static const int row_board = 5;
         static const int col_board = 5;
         Deck<Card>& mydeck1 = CardDeck::make_CardDeck();
 
         bool boardFlag[row_board][col_board];
         Card* deckBoard[row_board][col_board];
-        //create deck
-    
+            
     public:
 
         void setScreen();

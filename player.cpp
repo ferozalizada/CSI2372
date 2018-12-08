@@ -7,7 +7,7 @@ Player::Player(std::string name)
 std::string Player::getName() const{
     return m_Name;
 }
-bool Player::isActive(){
+bool Player::isActive() const{
     return m_Status;
 }
 void Player::setActive(bool status){
@@ -26,7 +26,7 @@ void Player::setDisplayMode( bool endOfGame ){
     m_EndOfGame = endOfGame;
 }
 
-Side Player::getSide(){
+Side Player::getSide() const{
     return m_Position;
 }
 

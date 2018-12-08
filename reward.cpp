@@ -1,6 +1,5 @@
 #include "reward.h"
 
-
 Reward::Reward(Rubies nRubies) : _rubies(nRubies){}
 
 //what??
