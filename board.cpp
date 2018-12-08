@@ -26,17 +26,11 @@ void Board::reset(){
 
 void Board::setBoard(){
     std::cout<<"Setting Board and making the string rep of the Cards\n" <<std::endl;
-    // std::stringstream buffer;
-    // std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());    
-     for(int i = 0; i < row_board; i++){
+    for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
             deckBoard[i][j] = mydeck1.getNext();
-            // (*deckBoard[i][j]).print();
         }
     }
-    // text = buffer.str();
-    // std::replace(text.begin(), text.end(), '\n', ' ');
-    // std::cout.rdbuf(old);
 }
 
 void Board::setScreen(){
@@ -50,22 +44,20 @@ void Board::setScreen(){
             screen[i] = "                   ";
         }
     }
+    screen[8] = "zzz zzz     zzz zzz";
+    screen[9] = "zzz zzz     zzz zzz";
+    screen[10]= "zzz zzz     zzz zzz";
 }
 
 void Board::updateScreen(){
-    
     for(int i = 0; i < row_board; i++){
         for(int j = 0; j < col_board; j++){
-            // std:: cout << boardFlag[i][j];
-            // "rrr rCr rrr "
             if(boardFlag[i][j] == true){
                 std::stringstream buffer;
                 std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());    
                 (*deckBoard[i][j]).print();
                 std::string text = buffer.str();
-
                 std::replace(text.begin(), text.end(), '\n', ' ');
-                sample = text;
                 screen[(i*4)+0].replace(j*4, 3, text.substr(0, 3));
                 screen[(i*4)+1].replace(j*4, 3, text.substr(4, 3));
                 screen[(i*4)+2].replace(j*4, 3, text.substr(8, 3));
@@ -73,18 +65,20 @@ void Board::updateScreen(){
                 std::cout.rdbuf(old);
             }
         }
-        // std::cout<< std::endl;
     }
-    // std::cout<<"Here is my shit" <<text << std:: endl;
 }
 
-void Board::print(){
-    // (*deckBoard[0][0]).print();
-    // (*deckBoard[0][1]).print();
-    for(int i = 0; i < row; i++){
-        std::cout<< screen[i] << std::endl;
+std::ostream& operator<<(std::ostream& os, Board board){
+    char coordinate = 'A';
+    for(int i = 0; i < board.row; i++){ 
+        if( ((i+3)%4 == 0) ){
+            os<< coordinate++ << "  " <<board.screen[i] << std::endl;
+        }else{
+            os<< "   " << board.screen[i] << std::endl;
+        }
     }
-    // std::cout<< "\'"<< sample<< "\'" << std::endl;
+    std::cout << "\n    1   2   3   4   5" << std::endl;
+    return os;
 }
 #if 1
 int main(){
@@ -99,7 +93,7 @@ int main(){
     b.turnFaceUp(Letter::E, Number::FIVE);
     b.turnFaceUp(Letter::D, Number::THREE);
     b.updateScreen();
-    b.print();
+    std::cout<< b;
     b.reset();
 }
 
