@@ -6,9 +6,21 @@ int Game::getRound() const{
     
 void Game::nextRound(){
     // increments the round if less than else end of game
-    if(round != 6){
+    if(round < 7){
        round ++;
-    } 
+
+       // update all cards to face down
+       board.reset();
+
+       // set all players to active status
+       resetPlayersStatus();
+    }
+}
+
+void Game::resetPlayersStatus(){
+    for(int i = 0; i < index; i++){
+        players[i]->setActive(true);
+    }
 }
 
 void Game::addPlayer(const Player& player){
@@ -50,10 +62,10 @@ void Game::setCard( const Letter& _letter, const Number& _number, Card* _card){
 }
 
 std::ostream& operator<<(std::ostream& os, Game& game){
-    os<< game.board << std::endl;
-    for(int i =0; i< game.num; i++){
+    os << std::endl << game.board << std::endl;
+    
+    for(int i = 0; i < game.index; i++){
         os << *game.players[i];
-
     }
 
     return os;

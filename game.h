@@ -26,10 +26,15 @@ class Game{
         /*
         * pointers to players and cards
         */
-        const Player* players[num];
+        Player* players[num];
         const Card* currentCard;
         const Card* previousCard;
     
+        /*
+        * set the players status to active
+        */
+        void resetPlayersStatus();
+
     public:
         
         /*

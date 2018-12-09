@@ -6,13 +6,14 @@
 #include "carddeck.h"
 #include "game.h"
 #include "rules.h"
+#include "board.h"
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
 
 
-#if 0
+#if 1
 int main(){
     string gameMode = "";
     int numberOfPlayers = 0;
@@ -46,9 +47,10 @@ int main(){
 
     cout << endl;
     
+    // create game
     Game game;
 
-    // create players
+    // create players and add them to game
     for(int i = 0; i < numberOfPlayers; i++){
         string pname;
 
@@ -70,9 +72,37 @@ int main(){
         game.addPlayer(newPlayer);
     }
 
+    // create rules
     Rules rules;
 
+    // display game
     cout << game;
+
+    while( !rules.gameOver(game) ){
+        game.nextRound();
+
+        cout << endl << "Round " << game.getRound() << endl;
+
+        // Temporarily reveal 3 cards directly in front of the player
+        for(int i = 0; i < numberOfPlayers; i++){
+            Player player;
+
+            if(i == 0){
+                player = game.getPlayer(Side::top);
+               
+            }else if(i == 1){
+                player = game.getPlayer(Side::bottom);
+            }else if(i == 2){
+                player = game.getPlayer(Side::left);
+            }else if(i == 3){
+                player = game.getPlayer(Side::right);
+            }
+
+            cout << endl << "Cards in front of " << player.getName() << endl;
+
+        }
+
+    }
 
     /*if(gameMode == "N"){
         
