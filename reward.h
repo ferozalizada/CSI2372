@@ -29,6 +29,8 @@ class Reward{
         * deleted assignment operator
         */
         void operator=(const Reward&) = delete;
+
+    public:
         /*
         * gives friend access to Reward Deck
         */
@@ -37,8 +39,6 @@ class Reward{
         * converstion operator
         */
         operator int() const;
-
-    public:
         /*
         * friend access to ostream to print Reward
         */

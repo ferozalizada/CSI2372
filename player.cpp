@@ -19,7 +19,7 @@ int Player::getNRubies() const{
 }
 
 void Player::addReward(const Reward& reward) {
-    std::cout<< "Added Rewards" << std::endl;
+    m_NRubies += reward;
 }
 
 void Player::setDisplayMode( bool endOfGame ){
