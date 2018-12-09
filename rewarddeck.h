@@ -7,17 +7,34 @@
 
 class RewardDeck: public Deck<Reward>{
     protected:
-        // RewardDeck rewardDeck;
+        /*
+        * Default Constructor RewardDeck 
+        */ 
         RewardDeck() = default;
+        /*
+        * Adds the card to the deck
+        */ 
         void add();
-    private:
-        // static RewardDeck rewardDeck;
-        //no assignment or copy
+        /*
+        * Destructor for the deck
+        */ 
+        ~RewardDeck();
+        /*
+        * Deleted assignment operator
+        */ 
         RewardDeck& operator=( const RewardDeck&) = delete;
+        /*
+        * Deleted copy constructor
+        */ 
         RewardDeck(const RewardDeck&) = delete;
-
+        /*
+        * Virtual function to create deck
+        */ 
         RewardDeck& createDeck();
     public:
+        /*
+        * Static function for deck
+        */ 
         static RewardDeck& make_RewardDeck();
 
 };

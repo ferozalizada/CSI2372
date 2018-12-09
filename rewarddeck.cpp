@@ -32,9 +32,32 @@ void RewardDeck::add(){
         deck.push_back(r1);
         deck.push_back(r2);
         deck.push_back(r3);
+
         deck.push_back(r4);
         deck.push_back(r5);
+        
         deck.push_back(r6);
+        
         deck.push_back(r7);          
     }
 }
+RewardDeck::~RewardDeck(){
+    int i = 0;
+    for (std::vector<Reward*>::iterator it = deck.begin() ; it != deck.end(); it++){
+        delete *it;
+    } 
+}
+#ifdef DEBUG_REWARDDECK
+int main(){
+    std::cout<< "Testing Reward class\n" << std::endl;
+    Deck<Reward>& a = RewardDeck::make_RewardDeck();
+    // Deck<Reward>& p = RewardDeck::createDeck();
+    while(!a.isEmpty()){
+        // std::cout<< *a.getNext() << std::endl;
+    std::cout<< "Reward ONE to int test: " << *a.getNext() << std::endl;
+    }
+    // std::cout<< "Reward ONE to int test: " << ((int)*r.getNext() == 1? "passed":"failed") << std::endl;
+    // std::cout<< "Reward ONE << ostream operator test: " << (*r.getNext() == 1? "passed":"failed") << std::endl;
+}
+
+#endif
