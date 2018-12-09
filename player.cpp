@@ -62,12 +62,22 @@ std::ostream& operator<<(std::ostream& os, const  Player& player){
 
 #ifdef DEBUG_PLAYER
 int main(){
-    std::cout<< "Testing Player class" << std::endl;
-    // Player player("Ali");
-    // if(("Ali" == player.getName()));
-    // p.getName();
-    // p.setActive(bool);
-    // p.isActive();
+
+    std::cout<< "Testing Player class\n" << std::endl;
+    std::string name = "Ali";
+    Player p(name);
+
+    std::cout<< "Player construction test: " << (name == p.getName()? "passed":"failed") << std::endl;
+    std::cout<< "Player status isActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
+    p.setActive(false);
+    std::cout<< "Player status setActive test: " << (p.isActive() == false? "passed":"failed") << std::endl;
+    p.setActive(true);
+    std::cout<< "Player status setActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
+    std::cout<< "Player status getNRubies test: " << (p.getNRubies() == 0? "passed":"failed") << std::endl;
+    std::cout<< "Player status addReward test: Will test in some other file caz of access restrictions " ;
+    // << (p.addReward((Reward)1) == 1? "passed":"failed") << std::endl;
+    
+    
     // p.getNRubies();
     // p.addReward( const Reward& );
     // p.setDisplayMode( bool endOfGame ) ;
