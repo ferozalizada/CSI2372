@@ -25,11 +25,13 @@ void Game::addPlayer(const Player& player){
 }
 
 const Player& Game::getPlayer(Side side) const {
+    // Player p;
     for (int i = 0; i< num; i ++){
         if((*players[i]).getSide() == side){
             return *players[i];
         };
     }
+    // return p;
     // return players[(int)side];
 }
 
@@ -52,16 +54,18 @@ void Game::setCard( const Letter& _letter, const Number& _number, Card* _card){
 }
 
 std::ostream& operator<<(std::ostream& os, Game& game){
-    std::cout<< game.board << std::endl;
+    os<< game.board << std::endl;
     for(int i =0; i< game.num; i++){
-        std::cout<< game.players[i] << std::endl;
+        os<< game.players[i] << std::endl;
 
     }
+    return os;
 }
 
 
-#if 1
+#if 0
 int main(){
+    Game g = Game();
 
     
     return 0;

@@ -33,18 +33,16 @@ Side Player::getSide() const{
 void Player::setSide(Side side){
     m_Position = side;
 }
-//why?
-    //side m_Position
-    //getsided() 
+
 std::string Player::positionToString() const{
     switch(m_Position){
-        case Side::TOP:
+        case Side::top:
             return "top";
-        case Side::BOTTOM:
+        case Side::bottom:
             return "bottom";
-        case Side::RIGHT:
+        case Side::right:
             return "right";
-        case Side::LEFT:
+        case Side::left:
             return "left";
         default:
             break;
@@ -60,3 +58,21 @@ std::ostream& operator<<(std::ostream& os, const  Player& player){
     }
     return os;
 }
+
+
+#ifdef DEBUG_PLAYER
+int main(){
+    std::cout<< "Testing Player class" << std::endl;
+    // Player player("Ali");
+    // if(("Ali" == player.getName()));
+    // p.getName();
+    // p.setActive(bool);
+    // p.isActive();
+    // p.getNRubies();
+    // p.addReward( const Reward& );
+    // p.setDisplayMode( bool endOfGame ) ;
+    // p.Player::getSide();
+    // p.Player::setSide(Side) 
+    return 0;
+}
+#endif

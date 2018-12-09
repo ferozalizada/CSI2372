@@ -145,7 +145,7 @@ std::ostream& operator<<(std::ostream& os, Board board){
     std::cout << "\n    1   2   3   4   5" << std::endl;
     return os;
 }
-#ifndef TEST_BOARD_
+#ifdef TEST_BOARD
 int main(){
     Board b = Board();
     b.reset();
