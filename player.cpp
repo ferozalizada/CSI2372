@@ -1,5 +1,4 @@
 #include "player.h"
-#include "rewarddeck.h"
 
 Player::Player(std::string name)
     : m_Name(name), m_Status(true), m_NRubies(0), m_EndOfGame(false)
@@ -62,6 +61,7 @@ std::ostream& operator<<(std::ostream& os, const  Player& player){
 
 
 #ifdef DEBUG_PLAYER
+#include "rewarddeck.h"
 int main(){
 
     std::cout<< "Testing Player class\n" << std::endl;

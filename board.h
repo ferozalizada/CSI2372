@@ -7,9 +7,7 @@
 #include<sstream>
 #include <exception>
 // #include <vector>
-#include "card.h"
 #include "carddeck.h"
-#include "deck.h"
 
 enum class Letter{ A, B, C, D, E};
 enum class Number{ ONE, TWO, THREE, FOUR, FIVE};

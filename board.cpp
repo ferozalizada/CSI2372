@@ -153,24 +153,14 @@ std::ostream& operator<<(std::ostream& os, Board board){
     std::cout << "\n    1   2   3   4   5" << std::endl;
     return os;
 }
-#ifdef TEST_BOARD
-int main(){
-    Board b = Board();
-    b.reset();
-    // b.setBoard();
-    b.setScreen();
-    // b.turnFaceUp(Letter::A, Number::ONE);
-    // b.turnFaceUp(Letter::B, Number::ONE);
-    // b.turnFaceUp(Letter::C, Number::ONE);
-    // b.turnFaceUp(Letter::D, Number::ONE);
-    // b.turnFaceUp(Letter::E, Number::ONE);
-    // b.turnFaceUp(Letter::E, Number::FIVE);
-    // b.turnFaceUp(Letter::D, Number::THREE);
-    // b.turnFaceUp(Letter::C, Number::THREE);
-    b.updateScreen();
-    std::cout<< b;
-    b.reset();
-    // b.isFaceUp(Letter::F, Number::Six);
-}
 
+#ifdef DEBUG_BOARD
+
+int main(){
+    std::cout<< "Testing Board class\n" << std::endl;
+    
+    Deck<Card>& b = CardDeck::make_CardDeck();
+    
+    return 0;
+}
 #endif

@@ -24,3 +24,12 @@ bool Rules::roundOver(const Game& game) const {
 const Player& Rules::getNextPlayer(const Game& game) {
     return (game.getPlayer((Side)(index++)));
 }
+
+
+#ifdef DEBUG_RULES
+int main(){
+    std::cout<< "Testing Rules class\n" << std::endl;
+    
+    return 0;
+}
+#endif

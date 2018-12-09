@@ -12,7 +12,7 @@ using std::endl;
 using std::string;
 
 
-#if 1
+#if 0
 int main(){
     string gameMode = "";
     int numberOfPlayers = 0;

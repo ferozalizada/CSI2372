@@ -1,5 +1,4 @@
 #include "reward.h"
-#include "rewarddeck.h"
 
 Reward::Reward(Rubies rubies) : m_rubies(rubies){}
 
@@ -14,6 +13,7 @@ std::ostream& operator<<(std::ostream& os, Reward& reward){
 
 
 #ifdef DEBUG_REWARD
+#include "rewarddeck.h"
 int main(){
     std::cout<< "Testing Reward class\n" << std::endl;
     Deck<Reward>& r = RewardDeck::make_RewardDeck();

@@ -60,12 +60,10 @@ std::ostream& operator<<(std::ostream& os, Game& game){
 }
 
 
-#if 0
+#ifdef DEBUG_GAME
 int main(){
-    Game g = Game();
-
+    std::cout<< "Testing Game class\n" << std::endl;
     
     return 0;
 }
-
 #endif

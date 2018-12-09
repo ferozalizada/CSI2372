@@ -1,7 +1,5 @@
 #include "carddeck.h"
 
-//override
-
 CardDeck& CardDeck::make_CardDeck(){
     CardDeck cardDeck;
     return cardDeck.createDeck();
@@ -13,8 +11,6 @@ CardDeck& CardDeck::createDeck(){
     return cardDeck;
 }
 
-//not neededdededed
-//why wa sit virtual again?
 void CardDeck::add(){
     if(deck.empty()){
         for(int i = 0; i < 5; i++){
@@ -66,3 +62,23 @@ FaceBackground CardDeck::nextColor(int i){
     }
     return color;
 }
+
+#ifdef DEBUG_CARDDECK
+int main(){
+    std::cout<< "Testing CardDeck class\n" << std::endl;
+    std::cout<< "Testing make_createDeck()" << std::endl;
+    Deck<Card>& a = CardDeck::make_CardDeck();
+    Deck<Card>& b = CardDeck::make_CardDeck();
+    std::cout<< "Address of deck a:"<< &a << "\nAddress of deck b:"<< &b 
+            << "\nTest status: "<< ((&a == &b)? "passed": "failed")<< std::endl;
+    while(!a.isEmpty()){
+        a.getNext();
+    }
+    std::cout<<"pointer of a:  after emptying: " << a.getNext() <<std::endl;
+    std::cout<<"pointer of b:                : " << b.getNext() <<std::endl;
+    if(a.getNext() == b.getNext()){
+        std::cout<< "both decks are emptied "<< std::endl;
+    }
+    return 0;
+}
+#endif

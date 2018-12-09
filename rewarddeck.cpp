@@ -1,5 +1,4 @@
 #include "rewarddeck.h"
-//needs destructor
 
 RewardDeck& RewardDeck::make_RewardDeck(){
     RewardDeck r;
@@ -42,22 +41,25 @@ void RewardDeck::add(){
     }
 }
 RewardDeck::~RewardDeck(){
-    int i = 0;
     for (std::vector<Reward*>::iterator it = deck.begin() ; it != deck.end(); it++){
         delete *it;
     } 
 }
 #ifdef DEBUG_REWARDDECK
 int main(){
-    std::cout<< "Testing Reward class\n" << std::endl;
+    std::cout<< "Testing RewardDeck class\n" << std::endl;
     Deck<Reward>& a = RewardDeck::make_RewardDeck();
-    // Deck<Reward>& p = RewardDeck::createDeck();
-    while(!a.isEmpty()){
-        // std::cout<< *a.getNext() << std::endl;
-    std::cout<< "Reward ONE to int test: " << *a.getNext() << std::endl;
+    int i = 0;
+    std::cout<< "Reward ONE to int test: " << ((int)*a.getNext() == 1? "passed":"failed") << std::endl;
+    std::cout<< "Reward ONE to int test: " << ((int)*a.getNext() == 1? "passed":"failed") << std::endl;
+    std::cout<< "Reward ONE to int test: " << ((int)*a.getNext() == 1? "passed":"failed") << std::endl;
+    std::cout<< "Reward TWO to int test: " << ((int)*a.getNext() == 2? "passed":"failed") << std::endl;
+    std::cout<< "Reward TWO to int test: " << ((int)*a.getNext() == 2? "passed":"failed") << std::endl;
+    std::cout<< "Reward THREE to int test: " << ((int)*a.getNext() == 3? "passed":"failed") << std::endl;
+    std::cout<< "Reward FOUR to int test: " << ((int)*a.getNext() == 4? "passed":"failed") << std::endl;
+    if(a.getNext() == nullptr){
+        std::cout<< "boi" << std::endl;
     }
-    // std::cout<< "Reward ONE to int test: " << ((int)*r.getNext() == 1? "passed":"failed") << std::endl;
-    // std::cout<< "Reward ONE << ostream operator test: " << (*r.getNext() == 1? "passed":"failed") << std::endl;
+    return 0;
 }
-
 #endif

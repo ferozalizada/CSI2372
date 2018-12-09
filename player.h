@@ -5,6 +5,7 @@
 #include <iostream>
 #include "reward.h"
 
+
 /*
 * Enums Side to limit the number of players
 */

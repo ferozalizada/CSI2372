@@ -61,13 +61,7 @@ void Card::createCard(FaceAnimal& animal, FaceBackground& color){
         }
     }
 }
-// FaceAnimal Card::getAnimal(){
-//     return m_faceAnimal;
-// }
-// FaceBackground Card::getColour(){
-//     return m_faceBackground;
-// }
-    
+
 void Card::print(){
     // Card c(FaceAnimal::Penguin, FaceBackground::Red);
     for(int row = 0; row < this->getNRows() ; ++row){
@@ -84,5 +78,37 @@ Card::operator FaceBackground() const {
     return m_faceBackground;
 }
 
-#if 0
+#ifdef DEBUG_CARD
+#include "carddeck.h"
+int main(){
+    std::cout<< "Testing Card class\n" << std::endl;
+    Deck<Card>& a = CardDeck::make_CardDeck();
+    std::cout<< "Printing the cards from the deck\n" << std::endl;
+    Card* p = a.getNext();
+    
+    std::cout<< "Card is\n" << std::endl;
+    (*p).print();
+    std::cout<< "print() passed" << std::endl;
+    std::cout<< "testing card FaceAnimal C is 0 enum: " << ((int)((FaceAnimal)*(p)))<< std::endl;
+    std::cout<< "testing card FaceAnimal: " << ((int)((FaceAnimal)*(p)) == 0? "passed":"failed" )<< std::endl;
+    std::cout<< "testing card FaceBackground r is 0: " << ((int)((FaceBackground)*(p))) << std::endl;
+    std::cout<< "testing card FaceBackground r is 0: " << ((int)((FaceBackground)*(p)) == 0? "passed":"failed") << std::endl;
+    std::cout<< "Getting next Card \n" << std::endl;
+    p = a.getNext();
+    (*p).print();
+    std::cout<< "print() passed" << std::endl;
+    std::cout<< "testing card FaceAnimal C is 0 enum: " << ((int)((FaceAnimal)*(p)))<< std::endl;
+    std::cout<< "testing card FaceAnimal: " << ((int)((FaceAnimal)*(p)) == 0? "passed":"failed" )<< std::endl;
+    std::cout<< "testing card FaceBackground g is 1: " << ((int)((FaceBackground)*(p))) << std::endl;
+    std::cout<< "testing card FaceBackground g is 1: " << ((int)((FaceBackground)*(p)) == 1? "passed":"failed") << std::endl;
+    // (int)((FaceBackground)*(p));
+    // while(!a.isEmpty()){
+        // (*a.getNext()).print();
+    // }
+    // std::cout<< "Printing" << std::endl;
+
+    // std::cout<<  << std::endl;
+    
+    return 0;
+}
 #endif
