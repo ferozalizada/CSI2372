@@ -18,12 +18,8 @@ int main(){
     std::cout<< "Testing Reward class\n" << std::endl;
     Deck<Reward>& r = RewardDeck::make_RewardDeck();
     // Deck<Reward>& p = RewardDeck::createDeck();
-    // while(r.isEmpty()){
-        std::cout<< *r.getNext() << std::endl;
-    // }
-    // std::cout<< "Reward ONE to int test: " << (name == p.getName()? "passed":"failed") << std::endl;
-    // std::cout<< "Reward << test: " << (name == p.getName()? "passed":"failed") << std::endl;
-    // std::cout<< "Player status isActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
-    // p.setActive(false);
+    std::cout<< "Reward ONE to int test: " << ((int)*r.getNext() == 1? "passed":"failed") << std::endl;
+    std::cout<< "Reward ONE << ostream operator test: " << (*r.getNext() == 1? "passed":"failed") << std::endl;
 }
+
 #endif
