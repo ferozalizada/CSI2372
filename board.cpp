@@ -1,8 +1,4 @@
 #include "board.h"
-#define TEST_BOARD_
-
-// constructor
-
 
 const char* OutOfRange::what() const throw(){
     return "OutOfRange";
@@ -158,8 +154,9 @@ std::ostream& operator<<(std::ostream& os, Board board){
 
 int main(){
     std::cout<< "Testing Board class\n" << std::endl;
-    
-    Deck<Card>& b = CardDeck::make_CardDeck();
+    Board b = Board();
+    std::cout<< "creating Board" << std::endl;
+
     
     return 0;
 }

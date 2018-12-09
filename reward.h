@@ -15,14 +15,17 @@ class Reward{
         * member variables
         */
         Rubies m_rubies;
+       
         /*
         * Constructor
         */
         Reward(Rubies);
+      
         /*
         * deleted copy constructor
         */
         Reward(const Reward&) = delete;
+      
         /*
         * deleted assignment operator
         */
@@ -33,12 +36,16 @@ class Reward{
         * gives friend access to Reward Deck
         */
         friend class RewardDeck;
+       
         /*
         * converstion operator
         */
         operator int() const;
+       
         /*
         * friend access to ostream to print Reward
+        * @param std::ostream&
+        * @param Reward&
         */
         friend std::ostream& operator<<(std::ostream& os, Reward& reward);
 };

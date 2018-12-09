@@ -30,14 +30,29 @@ template class Deck<Reward>;
 
 
 #ifdef DEBUG_DECK
+#include "carddeck.h"
 int main(){
-    std::cout<< "Testing CardDeck class\n" << std::endl;
-    std::cout<< "Testing make_createDeck()" << std::endl;
+    std::cout<< "Testing DecK class\n" << std::endl;
+    // std::cout<< "Testing make_createDeck()" << std::endl;
     Deck<Card>& a = CardDeck::make_CardDeck();
-    
+    std::cout<< "Testing isEmpty on full deck a: "<< ((a.isEmpty() == false)? "passed": "failed")<< std::endl;
+    Card* p = a.getNext();
+    std::cout<< "Testing getNext() to get fisrt element: " << std::endl;
+    (*p).print();
+    p = a.getNext();
+    std::cout<< "Testing getNext() to get fisrt element: " << std::endl;
+    (*p).print();
+    std::cout<< "Testing shuffle() so" << std::endl;
+    a.shuffle();
+    std::cout<< "Testing getNext() to get fisrt element: " << std::endl;
+    (*p).print();
     while(!a.isEmpty()){
-        a.getNext();
+        Card* p = a.getNext();
     }
+    if(a.getNext() == nullptr){
+        std::cout<< "Deck is empty pointing to null " << std::endl;
+    }
+
     return 0;
 }
 #endif

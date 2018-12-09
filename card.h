@@ -25,14 +25,17 @@ class Card{
         */
         static const int m_numberOfRows = 3;
         static const int m_numberOfColumns = 3;
+        
         /*
         * Array of string to represent card
         */  
         std::string card[m_numberOfRows];
+        
         /*
         * The type of animal the card has
         */
         FaceAnimal m_faceAnimal;
+        
         /*
         * The type of background the card has
         */
@@ -42,10 +45,12 @@ class Card{
         * Deleted copy constructor
         */
         Card(const Card&) = delete;
+        
         /*
         * Deleted assignment constructor
         */
         Card& operator=( const Card& ) = delete;
+        
         /*
         * Constructor for the card
         * @param FaceAnimal of type enum
@@ -66,18 +71,21 @@ class Card{
         * @param FaceBackground Enum
         */
         void createCard(FaceAnimal&, FaceBackground&);
+       
         /*
         * Getter for the type of Animal the card is
         * @param FaceAnimal Enum
         * @return char of type of animal the card is 
         */
         char getAnimalLetter(FaceAnimal&);
+       
         /*
         * Getter for the type of Color the card is
         * @param FaceBackground Enum
         * @return char of type of Color the card is 
         */
         char getColorLetter(FaceBackground&);
+       
         /*
         * Getter for the type of Animal the card is
         * @return number of rows
@@ -95,11 +103,13 @@ class Card{
         * @return a enum of the FaceAnimal
         */
         operator FaceAnimal() const;
+       
         /*
         * Conversion operator for the type of FaceBackground the card is
         * @return a enum of the FaceBackground
         */
         operator FaceBackground() const;
+       
         /*
         * friend access to CardDeck
         */
