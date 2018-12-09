@@ -12,15 +12,11 @@ void Game::nextRound(){
 }
 
 void Game::addPlayer(const Player& player){
-    //using side
-    for(int i = 0; i < num; i++){
-        const Player p = *players[i];
-        if( &p  == &player){
-            std::cout<< "already added Needs updating"<< std::endl;
-        } else{
-            players[index++] = &player;
-            break;
-        }
+    if(index < num){
+        Player* p = new Player(player.getName());
+        p->setSide(player.getSide());
+
+        players[index++] = p;
     }
 }
 
@@ -56,9 +52,10 @@ void Game::setCard( const Letter& _letter, const Number& _number, Card* _card){
 std::ostream& operator<<(std::ostream& os, Game& game){
     os<< game.board << std::endl;
     for(int i =0; i< game.num; i++){
-        os<< game.players[i] << std::endl;
+        os << *game.players[i];
 
     }
+
     return os;
 }
 

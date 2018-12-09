@@ -4,16 +4,17 @@
 
 #include "player.h"
 #include "carddeck.h"
+#include "game.h"
+#include "rules.h"
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
 
 
-#if 0
+#if 1
 int main(){
     string gameMode = "";
-    Player *players;
     int numberOfPlayers = 0;
 
     cout << endl;
@@ -44,7 +45,8 @@ int main(){
     }
 
     cout << endl;
-    players = new Player[numberOfPlayers]; // dynamic array of 2-4 players
+    
+    Game game;
 
     // create players
     for(int i = 0; i < numberOfPlayers; i++){
@@ -56,38 +58,27 @@ int main(){
         Player newPlayer(pname);
 
         if(i == 0){
-            newPlayer.setSide(Side::TOP);
+            newPlayer.setSide(Side::top);
         }else if(i == 1){
-            newPlayer.setSide(Side::BOTTOM);
+            newPlayer.setSide(Side::bottom);
         }else if(i == 2){
-            newPlayer.setSide(Side::LEFT);
+            newPlayer.setSide(Side::left);
         }else if(i == 3){
-            newPlayer.setSide(Side::RIGHT);
+            newPlayer.setSide(Side::right);
         }
         
-        players[i] = newPlayer;
-    }
-    
-    for(int i = 0; i < numberOfPlayers; i++){
-        cout << players[i] << endl;
+        game.addPlayer(newPlayer);
     }
 
-    delete players;
+    Rules rules;
 
-    if(gameMode == "N"){
+    cout << game;
+
+    /*if(gameMode == "N"){
         
     } else if(gameMode == "E"){
-    } 
+    } */
 
-    std::cout<< "cardDeck running ..." << std:: endl;
-    std::cout<< "starting" << std::endl;
-    CardDeck& mydeck1 = CardDeck::make_CardDeck();
-    mydeck1.shuffle();
-    while(mydeck1.isEmpty()){
-        // std::cout<< *mydeck1.getNext() << std::endl;
-        std::cout<< "*mydeck1.getNext()" << std::endl;
-
-    }
     return 0;
 }
 #endif

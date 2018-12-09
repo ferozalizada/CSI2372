@@ -96,8 +96,11 @@ Board::Board(){
                 }
             }
         }
-        
 
+        setScreen();
+        reset();
+        updateScreen();
+        
     } catch(...){
         std::cout<< "NoMoreCards"<< std::endl;
     }
