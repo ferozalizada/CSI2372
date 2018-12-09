@@ -1,17 +1,16 @@
 #include "rewarddeck.h"
 //needs destructor
 
-RewardDeck& RewardDeck::createDeck(){
-    static RewardDeck rewardDeck;
-    rewardDeck.add();
-    return rewardDeck;
-}
 RewardDeck& RewardDeck::make_RewardDeck(){
-    static RewardDeck rewardDeck;
-    rewardDeck.createDeck();
-    return rewardDeck;
+    RewardDeck r;
+    return r.createDeck();
 }
 
+RewardDeck& RewardDeck::createDeck(){
+    static RewardDeck reward_deck;
+    reward_deck.add();
+    return reward_deck;
+}
 
 void RewardDeck::add(){
     if(deck.empty()){

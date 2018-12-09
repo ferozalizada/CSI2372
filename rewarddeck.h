@@ -11,7 +11,7 @@ class RewardDeck: public Deck<Reward>{
         RewardDeck() = default;
         void add();
     private:
-        static RewardDeck rewardDeck;
+        // static RewardDeck rewardDeck;
         //no assignment or copy
         RewardDeck& operator=( const RewardDeck&) = delete;
         RewardDeck(const RewardDeck&) = delete;
