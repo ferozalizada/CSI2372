@@ -5,9 +5,7 @@
 /*
 *enums to represent limited rubies
 */
-enum Rubies {
-   ZERO, ONE, TWO, THREE, FOUR
-};
+enum Rubies { ONE = 1, TWO, THREE, FOUR};
 /*
 * Creates an object of reward that hold a reward
 */
