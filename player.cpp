@@ -1,4 +1,5 @@
 #include "player.h"
+#include "rewarddeck.h"
 
 Player::Player(std::string name)
     : m_Name(name), m_Status(true), m_NRubies(0), m_EndOfGame(false)
@@ -74,10 +75,12 @@ int main(){
     p.setActive(true);
     std::cout<< "Player setActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
     std::cout<< "Player getNRubies test: " << (p.getNRubies() == 0? "passed":"failed") << std::endl;
-    std::cout<< "\nPlayer addReward test: access restrictions will test in another file" << std::endl ;
-    // << (p.addReward((Reward)1) == 1? "passed":"failed") << std::endl;
     //cant create reward 
-    // p.addReward( const Reward& );
+    Deck<Reward>& r = RewardDeck::make_RewardDeck();
+    p.addReward( *r.getNext() );
+    std::cout<< "\nPlayer addReward test: 1 ==1 " << (p.getNRubies() == 1? "passed":"failed");
+    p.addReward( *r.getNext() );
+    std::cout<< "\nPlayer addReward test: 2 ==2 " << (p.getNRubies() == 2? "passed":"failed");
     p.setDisplayMode( true ) ;
     std::cout<< "Player setDisplayMode test ON: " << p;
     p.setDisplayMode( false ) ;
