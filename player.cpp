@@ -72,17 +72,23 @@ int main(){
     p.setActive(false);
     std::cout<< "Player status setActive test: " << (p.isActive() == false? "passed":"failed") << std::endl;
     p.setActive(true);
-    std::cout<< "Player status setActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
-    std::cout<< "Player status getNRubies test: " << (p.getNRubies() == 0? "passed":"failed") << std::endl;
-    std::cout<< "Player status addReward test: Will test in some other file caz of access restrictions " ;
+    std::cout<< "Player setActive test: " << (p.isActive() == true? "passed":"failed") << std::endl;
+    std::cout<< "Player getNRubies test: " << (p.getNRubies() == 0? "passed":"failed") << std::endl;
+    std::cout<< "\nPlayer addReward test: access restrictions will test in another file" << std::endl ;
     // << (p.addReward((Reward)1) == 1? "passed":"failed") << std::endl;
-    
-    
-    // p.getNRubies();
+    //cant create reward 
     // p.addReward( const Reward& );
-    // p.setDisplayMode( bool endOfGame ) ;
-    // p.Player::getSide();
-    // p.Player::setSide(Side) 
+    p.setDisplayMode( true ) ;
+    std::cout<< "Player setDisplayMode test ON: " << p;
+    p.setDisplayMode( false ) ;
+    std::cout<< "Player setDisplayMode test OFF: " << p;
+    std::cout<< "Player getSide test (automatically top): " << (p.getSide() == Side::top? "passed":"failed") << std::endl;
+    p.setSide(Side::bottom) ;
+    std::cout<< "Player setSide(Side::bottom) test: " << (p.getSide() == Side::bottom? "passed":"failed") << std::endl;
+    p.setSide(Side::left) ;
+    std::cout<< "Player setSide(Side::left) test: " << (p.getSide() == Side::left? "passed":"failed") << std::endl;
+    p.setSide(Side::right) ;
+    std::cout<< "Player setSide(Side::right) test: " << (p.getSide() == Side::right? "passed":"failed") << std::endl;
     return 0;
 }
 #endif

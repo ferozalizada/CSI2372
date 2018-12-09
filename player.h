@@ -27,11 +27,11 @@ class Player{
         * Function to change the enum to string
         */
         std::string positionToString() const ;
+    public:
         /*
         * default constructor
         */
         Player() = default;
-    public:
         /*
         * Creates a Player with a given string as the input parameter
         * @param string name of the player
@@ -66,6 +66,7 @@ class Player{
         void setDisplayMode( bool endOfGame );
         /*
         * getter method for the position/side of the player
+        * @returns side
         */
         Side getSide() const;
         /*
