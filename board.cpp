@@ -73,7 +73,12 @@ void Board::setCard(const Letter& _letter, const Number& _number, Card* card){
 }
 
 void Board::reset(){
-    std::memset(boardFlag, 1, row_board*col_board);
+    //std::memset(boardFlag, 1, row_board*col_board);
+    for(int i = 0; i < row_board; i++){
+        for(int j = 0; j < col_board; j++){
+            boardFlag[i][j] = 0;
+        }
+    }
 }
 
 Board::Board(){
