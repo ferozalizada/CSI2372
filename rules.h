@@ -2,6 +2,7 @@
 #define RULES_H
 
 #include "game.h"
+#include <string>
 
 /*
 * Rules class to check whether the player is making valid moves

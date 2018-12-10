@@ -137,6 +137,10 @@ int main(){
                 card3 = game.getCard(Letter::D, Number::FIVE);
             }
 
+            game.setCurrentCard(card1);
+            game.setCurrentCard(card2);
+            game.setCurrentCard(card3);
+
             cout << endl << player.getName() << " take a look at these 3 cards before game starts" << endl << endl;
             
             card1->print(); 
@@ -150,6 +154,49 @@ int main(){
             card3->print();
             cout << endl << l3 << n3 << endl << endl;
         }
+        
+        bool a = true;
+        bool b = rules.roundOver(game);
+        cout << b;
+        /*while(!rules.roundOver(game) && a == true){
+            cout << "test";
+            Player player;
+
+            // next active player takes turn
+            for(int i = 0; i < numberOfPlayers; i++){
+                player = rules.getNextPlayer(game);
+                if(player.isActive()){
+                    i == numberOfPlayers;
+                }
+            }
+
+            string cardPosition;
+            cout << player.getName() << " enter the card position to turn face up: ";
+            getline(cin, cardPosition);
+
+           /*int iLetter = cardPosition[0];
+            int iNum = cardPosition[1];
+            Letter l = static_cast<Letter>(iLetter);
+            Number n = static_cast<Number>(iNum);
+
+            /*if(cLetter == "A"){
+                l = Letter::A;
+            }else if(cLetter == "B"){
+                l = Letter::B;
+            }else if(cLetter == "C"){
+                l = Letter::C;
+            }else if(cLetter == "D"){
+                l = Letter::D;
+            }else {
+                l = Letter::E;
+            }
+
+            /*Card* card = game.getCard(l, n); 
+            game.setCurrentCard(card);
+
+            cout << game;
+            a = false;
+        }*/
 
     }
 

@@ -22,11 +22,14 @@ bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
         if((_letter > Letter::E) && (_number > Number::FIVE)){
             throw "OutOfRange";
         }else{
+            updateScreen();
             return boardFlag[(int)_letter][(int)_number] = true;
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
     }
+
+    updateScreen();
     return boardFlag[(int)_letter][(int)_number] = true;
 }
 
