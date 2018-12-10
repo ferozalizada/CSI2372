@@ -25,7 +25,7 @@ bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
         }else{
             updateScreen();
             return boardFlag[(int)_letter][(int)_number] = true;
-            reset();
+            // reset();
             updateScreen();
 
         }
@@ -161,7 +161,7 @@ std::ostream& operator<<(std::ostream& os, Board board){
     return os;
 }
 
-#ifdef DEBUG_BOARD
+#ifdef TEST_BOARD_
 
 int main(){
     std::cout<< "Testing Board class\n" << std::endl;

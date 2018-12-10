@@ -60,7 +60,7 @@ std::ostream& operator<<(std::ostream& os, const  Player& player){
 }
 
 
-#ifdef DEBUG_PLAYER
+#ifdef TEST_PLAYER_
 #include "rewarddeck.h"
 int main(){
 

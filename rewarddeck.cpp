@@ -45,7 +45,7 @@ RewardDeck::~RewardDeck(){
         delete *it;
     } 
 }
-#ifdef DEBUG_REWARDDECK
+#ifdef TEST_REWARDDECK_
 int main(){
     std::cout<< "Testing RewardDeck class\n" << std::endl;
     Deck<Reward>& a = RewardDeck::make_RewardDeck();

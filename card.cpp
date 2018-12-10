@@ -78,7 +78,7 @@ Card::operator FaceBackground() const {
     return m_faceBackground;
 }
 
-#ifdef DEBUG_CARD
+#ifdef TEST_CARD_
 #include "carddeck.h"
 int main(){
     std::cout<< "Testing Card class\n" << std::endl;

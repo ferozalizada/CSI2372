@@ -20,7 +20,7 @@ void CardDeck::add(){
                 //no delete???
                 Card* newCard = new Card(a, c);
                 deck.push_back(newCard);
-                // for debug?
+                // for TEST?
                 // std::cout << *(newCard) << std::endl;
             }
         // std::cout << std::endl;
@@ -63,7 +63,7 @@ FaceBackground CardDeck::nextColor(int i){
     return color;
 }
 
-#ifdef DEBUG_CARDDECK
+#ifdef TEST_CARDDECK_
 int main(){
     std::cout<< "Testing CardDeck class\n" << std::endl;
     std::cout<< "Testing make_createDeck()" << std::endl;

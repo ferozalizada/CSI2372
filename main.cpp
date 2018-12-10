@@ -1,3 +1,4 @@
+#ifdef TEST_MAIN_
 #include <iostream>
 #include <string>
 #include <climits>
@@ -13,7 +14,6 @@ using std::endl;
 using std::string;
 
 
-#if 1
 int main(){
     string gameMode = "";
     int numberOfPlayers = 0;

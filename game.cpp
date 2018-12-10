@@ -114,7 +114,7 @@ std::ostream& operator<<(std::ostream& os, Game& game){
 }
 
 
-#ifdef DEBUG_GAME
+#ifdef TEST_GAME_
 int main(){
     std::cout<< "Testing Game class\n" << std::endl;
     Game game = Game();

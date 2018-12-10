@@ -29,7 +29,7 @@ template class Deck<Reward>;
 
 
 
-#ifdef DEBUG_DECK
+#ifdef TEST_DECK_
 #include "carddeck.h"
 int main(){
     std::cout<< "Testing DecK class\n" << std::endl;

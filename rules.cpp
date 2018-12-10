@@ -45,7 +45,7 @@ const Player& Rules::getNextPlayer(const Game& game) {
 }
 
 
-#ifdef DEBUG_RULES
+#ifdef TEST_RULES_
 int main(){
     std::cout<< "Testing Rules class\n" << std::endl;
     

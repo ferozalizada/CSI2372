@@ -12,7 +12,7 @@ std::ostream& operator<<(std::ostream& os, Reward& reward){
 }
 
 
-#ifdef DEBUG_REWARD
+#ifdef TEST_REWARD_
 #include "rewarddeck.h"
 int main(){
     std::cout<< "Testing Reward class\n" << std::endl;
