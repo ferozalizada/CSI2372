@@ -33,14 +33,12 @@ void Game::addPlayer(const Player& player){
 }
 
 const Player& Game::getPlayer(Side side) const {
-    // Player* p;
     for (int i = 0; i< num; i ++){
         if((*players[i]).getSide() == side){
             return *players[i];
         };
     }
-    // return *p;
-    // return players[(int)side];
+    
 }
 
 const Card* Game::getPreviousCard() const{
@@ -128,17 +126,11 @@ int main(){
     std::cout<< "Testing is nextRound = 1: " <<(game.getRound()  == 1? "passed": "failed")<< std::endl;
     
     std::cout<< "getPlayer " <<game.getPlayer(Side::top)<< std::endl;
-    // std::cout<< "Testing is GameOver(): " <<(rule.gameOver(game) == 0? "passed": "failed" )<< std::endl;
-    // std::cout<< "Testing is isValid(): " <<(game.getCurrentCard()== game.getCurrentCard()? "passed": "failed") << std::endl;
-    // std::cout<< "Testing is isValid(): " <<(game.getCurrentCard() == game.getPreviousCard()? "passed": "failed") << std::endl;
-    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
-    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
-    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
-    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
-    // std::cout<< "Testing is isValid(): " <<(rule.isValid(game) == 1? "passed": "failed") << std::endl;
-    // p3.setActive(true);
-    // std::cout<< "Testing is roundOver(): " <<(rule.roundOver(game)  == true? "passed": "failed")<< std::endl;
-
+    // (*game.getCurrentCard()).print();
+    game.getCard(Letter::A, Number::ONE);
+    // Card* c = (game.getCurrentCard());
+    // game.setCard(Letter::A, Number::ONE, c);
+    // std::cout<< *game.getCurrentCard() << std::endl;
     
     return 0;
 }
