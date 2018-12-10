@@ -36,7 +36,7 @@ class Rules{
         * @param Game&
         * @return bool
         */
-        bool roundOver(const Game&) const;
+        bool roundOver(const Game&) ;
         
         /*
         *  returns the next player
