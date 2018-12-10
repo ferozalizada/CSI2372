@@ -22,7 +22,8 @@ int main(){
     cout << "Welcome to the game Memoarrr!" << endl;
     cout << "Come join the adventure and challenge your friends in this memory card game" << endl << endl;
     cout << "Would you like to play in [N]ormal or [E]xpert mode ?" << endl;
-   
+    gameMode.erase(std::remove_if(gameMode.begin(), gameMode.end(), ::isspace), gameMode.end());
+    std::transform(gameMode.begin(), gameMode.end(), gameMode.begin(), ::tolower);
     while(gameMode != "N" && gameMode != "E"){
         // keep asking if input invalid
         cout << "Enter [N] or [E] to start playing: ";

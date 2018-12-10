@@ -51,6 +51,9 @@ const Card* Game::getCurrentCard() const{
 }
 void Game::setCurrentCard( const  Card* card){
     currentCard = card;
+    // board.getCard()
+    //flip here
+    // board.
 }
 
 Card* Game::getCard( const Letter& _letter, const Number& _number){
