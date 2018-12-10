@@ -25,7 +25,9 @@ bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
         }else{
             updateScreen();
             return boardFlag[(int)_letter][(int)_number] = true;
+            reset();
             updateScreen();
+
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
