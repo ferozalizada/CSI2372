@@ -22,13 +22,15 @@ int main(){
     cout << "Welcome to the game Memoarrr!" << endl;
     cout << "Come join the adventure and challenge your friends in this memory card game" << endl << endl;
     cout << "Would you like to play in [N]ormal or [E]xpert mode ?" << endl;
-    gameMode.erase(std::remove_if(gameMode.begin(), gameMode.end(), ::isspace), gameMode.end());
-    std::transform(gameMode.begin(), gameMode.end(), gameMode.begin(), ::tolower);
+    
     while(gameMode != "n" && gameMode != "e"){
         // keep asking if input invalid
         cout << "Enter [N] or [E] to start playing: ";
         getline(cin, gameMode);
         cout << endl;
+
+        gameMode.erase(std::remove_if(gameMode.begin(), gameMode.end(), ::isspace), gameMode.end());
+        std::transform(gameMode.begin(), gameMode.end(), gameMode.begin(), ::tolower);
     }
 
     cout << "How many players will join the adventure ?" << endl;
@@ -85,7 +87,7 @@ int main(){
         cout << endl << "Round " << game.getRound() << endl;
 
         // Temporarily reveal 3 cards directly in front of the player
-        for(int i = 0; i < numberOfPlayers; i++){
+        for(int j = 0; j < numberOfPlayers; j++){
             Player player;
             Card* card1;
             Card* card2;
@@ -93,8 +95,9 @@ int main(){
             string l1, l2, l3;
             string n1, n2, n3;
 
-            if(i == 0){ 
+            if(j == 0){ 
                 player = game.getPlayer(Side::top);
+                
                 l1 = l2 = l3 = "A";
                 n1 = "2";
                 n2 = "3";
@@ -104,7 +107,7 @@ int main(){
                 card2 = game.getCard(Letter::A, Number::THREE);
                 card3 = game.getCard(Letter::A, Number::FOUR);
 
-            }else if(i == 1){
+            }else if(j == 1){
                 player = game.getPlayer(Side::bottom);
                 l1 = l2 = l3 = "E";
                 n1 = "2";
@@ -115,7 +118,7 @@ int main(){
                 card2 = game.getCard(Letter::E, Number::THREE);
                 card3 = game.getCard(Letter::E, Number::FOUR);
 
-            }else if(i == 2){
+            }else if(j == 2){
                 player = game.getPlayer(Side::left);
                 l1 = "B";
                 l2 = "C";
@@ -126,7 +129,7 @@ int main(){
                 card2 = game.getCard(Letter::C, Number::ONE);
                 card3 = game.getCard(Letter::D, Number::ONE);
 
-            }else if(i == 3){
+            }else if(j == 3){
                 player = game.getPlayer(Side::right);
                 l1 = "B";
                 l2 = "C";
@@ -138,9 +141,9 @@ int main(){
                 card3 = game.getCard(Letter::D, Number::FIVE);
             }
 
-            game.setCurrentCard(card1);
+            /*game.setCurrentCard(card1);
             game.setCurrentCard(card2);
-            game.setCurrentCard(card3);
+            game.setCurrentCard(card3);*/
 
             cout << endl << player.getName() << " take a look at these 3 cards before game starts" << endl << endl;
             
@@ -155,49 +158,50 @@ int main(){
             card3->print();
             cout << endl << l3 << n3 << endl << endl;
         }
-        
-        bool a = true;
-        bool b = rules.roundOver(game);
-        cout << b;
-        /*while(!rules.roundOver(game) && a == true){
-            cout << "test";
+
+        while(!rules.roundOver(game)){
             Player player;
 
-            // next active player takes turn
             for(int i = 0; i < numberOfPlayers; i++){
                 player = rules.getNextPlayer(game);
+                
                 if(player.isActive()){
-                    i == numberOfPlayers;
+                    cout << player.getName();
+                    break;
                 }
             }
 
             string cardPosition;
-            cout << player.getName() << " enter the card position to turn face up: ";
+            cout << " enter the card position to turn face up: ";
             getline(cin, cardPosition);
-
-           /*int iLetter = cardPosition[0];
+            
+            char cLetter = cardPosition[0];
             int iNum = cardPosition[1];
-            Letter l = static_cast<Letter>(iLetter);
+            Letter l;
             Number n = static_cast<Number>(iNum);
 
-            /*if(cLetter == "A"){
+            if(cLetter == 'A'){
                 l = Letter::A;
-            }else if(cLetter == "B"){
+            }else if(cLetter == 'B'){
                 l = Letter::B;
-            }else if(cLetter == "C"){
+            }else if(cLetter == 'C'){
                 l = Letter::C;
-            }else if(cLetter == "D"){
+            }else if(cLetter == 'D'){
                 l = Letter::D;
             }else {
                 l = Letter::E;
             }
 
-            /*Card* card = game.getCard(l, n); 
+            Card* card = game.getCard(l, n); 
             game.setCurrentCard(card);
 
             cout << game;
-            a = false;
-        }*/
+
+            if(!rules.isValid(game)){
+                player.setActive(false);
+            }
+
+        }
 
     }
 
