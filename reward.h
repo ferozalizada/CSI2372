@@ -1,5 +1,5 @@
-#ifndef _REWARD_H_
-#define _REWARD_H_
+#ifndef REWARD_H_
+#define REWARD_H_
 
 #include <iostream>
 /*

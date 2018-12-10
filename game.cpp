@@ -52,6 +52,10 @@ const Card* Game::getCurrentCard() const{
 void Game::setCurrentCard( const  Card* card){
     currentCard = card;
 
+    // board.getCard()
+    //flip here
+    // board.
+
     // flip card face up
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
@@ -113,6 +117,8 @@ std::ostream& operator<<(std::ostream& os, Game& game){
 #ifdef DEBUG_GAME
 int main(){
     std::cout<< "Testing Game class\n" << std::endl;
+    Game game = Game();
+    game.
     
     return 0;
 }

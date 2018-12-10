@@ -18,6 +18,7 @@
         "random": "cpp",
         "ios": "cpp",
         "memory": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "istream": "cpp"
     }
 }
