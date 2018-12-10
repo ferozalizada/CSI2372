@@ -10,6 +10,7 @@ bool Board::isFaceUp(const Letter& _letter, const Number& _number) const{
             throw OutOfRange();
         }else{
             return (boardFlag[(int)_letter][(int)_number]);
+            // updateScreen();
         }
     } catch(OutOfRange e){
         std::cout<< e.what()<< std::endl;
@@ -23,6 +24,7 @@ bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
             throw "OutOfRange";
         }else{
             return boardFlag[(int)_letter][(int)_number] = true;
+            updateScreen();
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
@@ -36,6 +38,7 @@ bool Board::turnFaceDown(const Letter& _letter, const Number& _number){
             throw "OutOfRange";
         }else{
             return boardFlag[(int)_letter][(int)_number] = false;
+            updateScreen();
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
@@ -62,10 +65,13 @@ void Board::setCard(const Letter& _letter, const Number& _number, Card* card){
             throw "OutOfRange";
         }else{
             deckBoard[(int)_letter][(int)_number] = card;
+            updateScreen();
+
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
     }
+
 }
 
 void Board::reset(){

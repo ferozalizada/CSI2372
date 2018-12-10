@@ -51,9 +51,48 @@ const Card* Game::getCurrentCard() const{
 }
 void Game::setCurrentCard( const  Card* card){
     currentCard = card;
+
     // board.getCard()
     //flip here
     // board.
+
+    // flip card face up
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            Letter L;
+            Number N;
+
+            if(i == 0){
+                L = Letter::A;
+            }else if(i == 1){
+                L = Letter::B;
+            }else if(i == 2){
+                L = Letter::C;
+            }else if(i == 3){
+                L = Letter::D;
+            }else{
+                L = Letter::E;
+            }
+
+            if(j == 0){
+                N = Number::ONE;
+            }else if(j == 1){
+                N = Number::TWO;
+            }else if(j == 2){
+                N = Number::THREE;
+            }else if(j == 3){
+                N = Number::FOUR;
+            }else{
+                N = Number::FIVE;
+            }
+
+            Card* c = getCard(L, N);
+
+            if(&card == &c){
+                board.turnFaceUp(L, N);
+            }
+        }
+    }
 }
 
 Card* Game::getCard( const Letter& _letter, const Number& _number){
@@ -78,6 +117,8 @@ std::ostream& operator<<(std::ostream& os, Game& game){
 #ifdef DEBUG_GAME
 int main(){
     std::cout<< "Testing Game class\n" << std::endl;
+    Game game = Game();
+    game.
     
     return 0;
 }
