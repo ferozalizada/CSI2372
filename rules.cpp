@@ -12,7 +12,6 @@ bool Rules::roundOver(const Game& game)  {
    int counter = 0;
    for(int i =0; i< index; i++){
        if( (getNextPlayer(game)).isActive()){
-           std::cout<< "Player is active " << std::endl;
            counter ++;
        }
    }

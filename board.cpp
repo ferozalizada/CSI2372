@@ -23,10 +23,9 @@ bool Board::turnFaceUp(const Letter& _letter, const Number& _number){
         if((_letter > Letter::E) && (_number > Number::FIVE)){
             throw "OutOfRange";
         }else{
+            boardFlag[(int)_letter][(int)_number] = true;
             updateScreen();
-            return boardFlag[(int)_letter][(int)_number] = true;
-            // reset();
-            updateScreen();
+            return boardFlag[(int)_letter][(int)_number];
 
         }
     } catch(...){
@@ -42,8 +41,9 @@ bool Board::turnFaceDown(const Letter& _letter, const Number& _number){
         if((_letter > Letter::E) && (_number > Number::FIVE)){
             throw "OutOfRange";
         }else{
-            return boardFlag[(int)_letter][(int)_number] = false;
+            boardFlag[(int)_letter][(int)_number] = false;
             updateScreen();
+            return boardFlag[(int)_letter][(int)_number];
         }
     } catch(...){
         std::cout<< "OutOfRange" << std::endl;
@@ -86,6 +86,7 @@ void Board::reset(){
             boardFlag[i][j] = 0;
         }
     }
+    updateScreen();
 }
 
 Board::Board(){
@@ -106,7 +107,6 @@ Board::Board(){
 
         setScreen();
         reset();
-        updateScreen();
         
     } catch(...){
         std::cout<< "NoMoreCards"<< std::endl;
@@ -127,6 +127,7 @@ void Board::setScreen(){
     screen[8] = "zzz zzz     zzz zzz";
     screen[9] = "zzz zzz     zzz zzz";
     screen[10]= "zzz zzz     zzz zzz";
+    updateScreen();
 }
 
 void Board::updateScreen(){
@@ -164,9 +165,41 @@ std::ostream& operator<<(std::ostream& os, Board board){
 #ifdef TEST_BOARD_
 
 int main(){
-    std::cout<< "Testing Board class\n" << std::endl;
-    Board b = Board();
-    std::cout<< "creating Board" << std::endl;
+    std::cout<< "Testing Rules class\n" << std::endl;
+    Board board = Board();
+    // std::cout << board << std::endl;
+    std::cout << "printing of Board and Construction passed" << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing isFaceUp()" << (board.isFaceUp(Letter::A, Number::ONE) == 0? "Passed":"Failed" ) << std::endl;
+    // std::cout << board << std::endl;
+    std::cout<< "testing turnFaceUp()" << (board.turnFaceUp(Letter::A, Number::ONE) == 1? "Passed":"Failed" ) << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing turnFaceUp()" << (board.turnFaceUp(Letter::A, Number::TWO) == 1? "Passed":"Failed" ) << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing turnFaceUp()" << (board.turnFaceUp(Letter::A, Number::THREE) == 1? "Passed":"Failed" ) << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing turnFaceUp()" << (board.turnFaceUp(Letter::A, Number::FOUR) == 1? "Passed":"Failed" ) << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing turnFaceUp()" << (board.turnFaceUp(Letter::A, Number::FIVE) == 1? "Passed":"Failed" ) << std::endl;
+    std::cout << board << std::endl;
+    std::cout<< "testing turnFaceDown()" << (board.turnFaceDown(Letter::A, Number::ONE) == 0? "Passed":"Failed" ) << std::endl;
+    std::cout<< "testing reset()"<<  std::endl;
+    board.reset();
+    std::cout << board << std::endl;
+
+
+
+    // std::cout<< "Testing is roundOver(): no active player " <<(rule.roundOver(game)  == false? "passed": "failed")<< std::endl;
+    // std::cout<< "Testing is GameOver(): " <<(rule.gameOver(game) == 0? "passed": "failed" )<< std::endl;
+    // std::cout<< "Testing is isValid(): " <<(game.getCurrentCard()== game.getCurrentCard()? "passed": "failed") << std::endl;
+    // std::cout<< "Testing is isValid(): " <<(game.getCurrentCard() == game.getPreviousCard()? "passed": "failed") << std::endl;
+    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
+    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
+    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
+    // std::cout<< "Testing is getNextPlayer(): " <<(rule.getNextPlayer(game) )<< std::endl;
+    // std::cout<< "Testing is isValid(): " <<(rule.isValid(game) == 1? "passed": "failed") << std::endl;
+    // p3.setActive(true);
+    // std::cout<< "Testing is roundOver(): " <<(rule.roundOver(game)  == true? "passed": "failed")<< std::endl;
 
     
     return 0;
